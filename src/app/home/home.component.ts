@@ -18,6 +18,10 @@ export class HomeComponent {
 
   products: Product[] = [];
 
+  onProductOutput(product: Product) {
+    console.log(product, 'Output');
+  }
+
   // this is called when our component is initiallized
   // we invoke the getProducts from the products services and we subscribe to the output it produces
   // once this result of the observable comes, 
