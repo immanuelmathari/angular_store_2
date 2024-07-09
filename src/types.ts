@@ -19,7 +19,7 @@ export interface Options {
 }
 
 export interface Products{
-    items: Products[];
+    items: Product[];
     total: number;
     page: number;
     perPage: number;
