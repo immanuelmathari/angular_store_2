@@ -54,4 +54,51 @@ export class HomeComponent {
   totalRecords: number = 0;
   rows : number = 5
 
+  // to add products
+  editProduct(product: Product, id: number) {
+    // console.log(product, 'Edit');
+    this.productsService.editProduct(`https://localhost:3000/clothes/${id}`, product).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (error) => {
+          console.log(error)
+        },
+      }
+    )
+
+  }
+
+  deleteProduct(id: number) {
+    // console.log(product, 'Delete')
+    this.productsService.deleteProduct(`https://localhost:3000/clothes/${id}`).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (error) => {
+          console.log(error)
+        },
+      }
+    )
+  }
+
+  addProduct(product: Product) {
+    // console.log(product, 'Add')
+    this.productsService.addProduct('http://localhost:8000/clothes', product).subscribe(
+      {
+        next: (data) => {
+          console.log(data);
+          this.fetchProducts(0, this.rows);
+        },
+        error: (error) => {
+          console.log(error);
+        }
+      }
+    )
+  }
+
 }
