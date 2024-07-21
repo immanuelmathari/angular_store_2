@@ -13,6 +13,7 @@ export class ApiService {
   ) { }
 
   // the <T> is a generic type tht means that the function can handle data of any type
+  // this type we got it fro, HttpClient's get function even the Options in types.ts
   get<T>(url: string, options: Options): Observable<T> {
     return this.httpClient.get<T>(url, options) as Observable<T>;
   }
